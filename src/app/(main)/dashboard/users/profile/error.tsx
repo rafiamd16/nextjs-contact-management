@@ -1,3 +1,5 @@
+'use client'
+
 const Error = ({ error }: { error: Error }) => {
   return (
     <section className="pt-22 sm:pt-24">
