@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 const ProfilePage = async () => {
   const user = await getCurrentUser()
 
-  if ('error' in user!) return { error: user.error }
+  if ('error' in user!) {
+    throw new Error(user.error as string)
+  }
 
   return (
     <section className="pt-22 sm:pt-24">
