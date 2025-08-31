@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: 'Dashboard',
 }
 
+export const dynamic = 'force-dynamic'
+
 const DashboardPage = async () => {
   try {
     const user = (await getCurrentUser()) as IUser
