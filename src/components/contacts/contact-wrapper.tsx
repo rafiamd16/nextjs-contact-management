@@ -20,7 +20,7 @@ const ContactWrapper = ({ role }: { role: string }) => {
 
   const query = searchParams.get('query') || ''
   const filter = searchParams.get('filter') || ''
-  let page = searchParams.get('page') || '1'
+  const page = searchParams.get('page') || '1'
 
   useEffect(() => {
     const pageNum = parseInt(page, 10)
@@ -37,7 +37,7 @@ const ContactWrapper = ({ role }: { role: string }) => {
       filter,
       page,
     }),
-    [query, filter, page],
+    [query, filter, page]
   )
 
   const { contacts, pagination, isLoading, mutate } = useContacts(params)

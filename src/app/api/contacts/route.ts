@@ -19,7 +19,8 @@ export const GET = async (req: NextRequest) => {
   const parsed = contactSearchSchema.safeParse(rawQuery)
   if (!parsed.success) return NextResponse.json(parsed.error.issues[0].message, { status: 400 })
 
-  let { query, filter, page } = parsed.data
+  let { query, page } = parsed.data
+  const { filter } = parsed.data
   page = Math.max(1, page)
 
   const size = 10
@@ -83,7 +84,7 @@ export const GET = async (req: NextRequest) => {
         totalPages: Math.ceil(total / size),
       },
     })
-  } catch (error) {
+  } catch (_) {
     return NextResponse.json({ message: 'Failed to fetch contacts' }, { status: 500 })
   }
 }

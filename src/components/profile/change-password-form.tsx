@@ -69,7 +69,7 @@ const ChangePasswordForm = () => {
         position: 'top-center',
         duration: 3000,
       })
-    } catch (error) {
+    } catch (_) {
       return toast.error('Something went wrong', {
         richColors: true,
         position: 'top-center',

@@ -55,7 +55,7 @@ const AddressForm = ({ mode, defaultValues, addressId, contactId, contact }: Pro
     mode === 'create' ? back() : null
     toast.success(
       `${mode === 'create' ? 'Address created successfully' : 'Address updated successfully'}`,
-      { richColors: true, position: 'top-center' },
+      { richColors: true, position: 'top-center' }
     )
   }
 

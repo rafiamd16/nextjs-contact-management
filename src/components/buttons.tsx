@@ -70,7 +70,7 @@ export const DeleteButton = <T,>({
         duration: 3000,
       })
       mutate?.()
-    } catch (error) {
+    } catch (_) {
       toast.error('Something went wrong', { richColors: true, position: 'top-center' })
     }
   }
@@ -105,13 +105,13 @@ export const DeleteButton = <T,>({
   )
 }
 
-export const DeleteAllButton = ({
+export const DeleteAllButton = <T,>({
   data,
   description = 'Account',
   onDelete,
   mutate,
 }: {
-  data: any
+  data: T[]
   description?: string
   onDelete: () => Promise<unknown>
   mutate: () => void
@@ -128,7 +128,7 @@ export const DeleteAllButton = ({
         duration: 3000,
       })
       mutate()
-    } catch (error) {
+    } catch (_) {
       toast.error('Something went wrong', { richColors: true, position: 'top-center' })
     }
   }

@@ -60,7 +60,7 @@ const NotFound = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          It seems you've gotten lost. The page you are looking for does not exist or has been
+          It seems you&apos;ve gotten lost. The page you are looking for does not exist or has been
           moved.
         </motion.p>
 

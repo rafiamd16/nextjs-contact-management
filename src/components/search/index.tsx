@@ -2,14 +2,14 @@ import { DeleteAllButton } from '@/components/buttons'
 import SearchInput from '@/components/search/search-input'
 import { FaSearch } from 'react-icons/fa'
 
-interface Props {
-  data: Object[]
+interface Props<T = unknown> {
+  data: T[]
   mutate: () => void
   onDelete: () => Promise<unknown>
   description?: string
 }
 
-const Index = ({ data, mutate, onDelete, description }: Props) => {
+const Index = <T,>({ data, mutate, onDelete, description }: Props<T>) => {
   return (
     <div className="card-hover flex flex-col justify-center rounded-xl border bg-card p-6 shadow-md dark:bg-neutral-900">
       <div className="mb-4 flex items-center justify-between">

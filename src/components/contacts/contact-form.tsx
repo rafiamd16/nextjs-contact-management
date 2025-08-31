@@ -55,9 +55,9 @@ const ContactForm = ({ mode, contactId, defaultValues }: Props) => {
         {
           position: 'top-center',
           richColors: true,
-        },
+        }
       )
-    } catch (error) {
+    } catch (_) {
       return toast.error('Something went wrong', { richColors: true, position: 'top-center' })
     }
   }

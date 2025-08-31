@@ -53,7 +53,7 @@ export const GET = async (req: NextRequest) => {
         totalPages,
       },
     })
-  } catch (error) {
+  } catch (_) {
     return NextResponse.json({ message: 'Failed to fetch user data' }, { status: 500 })
   }
 }

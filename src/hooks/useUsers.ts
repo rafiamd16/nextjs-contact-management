@@ -6,7 +6,12 @@ import useSWR from 'swr'
 
 const api_url = `${process.env.NEXT_PUBLIC_API_URL}/auth/users`
 
-export const useUsers = (params: Record<string, any>) => {
+interface Params {
+  query?: string
+  page?: string | number
+}
+
+export const useUsers = (params: Params) => {
   const key = [`${api_url}`, JSON.stringify(params)]
 
   const { data, error, isLoading, mutate } = useSWR<UserResponse>(
@@ -19,7 +24,7 @@ export const useUsers = (params: Record<string, any>) => {
       keepPreviousData: true,
       revalidateOnFocus: false,
       dedupingInterval: 1000 * 10,
-    },
+    }
   )
 
   return {

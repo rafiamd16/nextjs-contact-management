@@ -6,7 +6,13 @@ import useSWR from 'swr'
 
 const api_url = `${process.env.NEXT_PUBLIC_API_URL}/contacts`
 
-export const useContacts = (params: Record<string, any>) => {
+interface Params {
+  query?: string
+  filter?: string
+  page?: string | number
+}
+
+export const useContacts = (params: Params) => {
   const key = [`${api_url}`, JSON.stringify(params)]
 
   const { data, error, isLoading, mutate } = useSWR<ContactResponse>(
@@ -19,7 +25,7 @@ export const useContacts = (params: Record<string, any>) => {
       keepPreviousData: true,
       revalidateOnFocus: false,
       dedupingInterval: 1000 * 10,
-    },
+    }
   )
 
   return {
