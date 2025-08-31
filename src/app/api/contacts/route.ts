@@ -19,8 +19,8 @@ export const GET = async (req: NextRequest) => {
   const parsed = contactSearchSchema.safeParse(rawQuery)
   if (!parsed.success) return NextResponse.json(parsed.error.issues[0].message, { status: 400 })
 
-  let { query, page } = parsed.data
-  const { filter } = parsed.data
+  let { page } = parsed.data
+  const { query, filter } = parsed.data
   page = Math.max(1, page)
 
   const size = 10
