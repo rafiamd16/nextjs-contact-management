@@ -1,0 +1,11 @@
+import { api } from '@/lib/axios'
+import { UserResponse } from '@/types/user'
+
+const api_url = `${process.env.NEXT_PUBLIC_API_URL}/auth/users`
+
+export const getUsers = async (params: Record<string, any>) => {
+  const query = new URLSearchParams(params).toString()
+  const url = query ? `${api_url}?${query}` : `${api_url}`
+  const res = await api.get<UserResponse>(url)
+  return res.data
+}
