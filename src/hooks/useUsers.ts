@@ -4,9 +4,14 @@ import { getUsers } from '@/lib/api/user-api'
 import { UserResponse } from '@/types/user'
 import useSWR from 'swr'
 
-const api_url = `${process.env.NEXT_PUBLIC_API_URL}/auth/users`
+const api_url = '/auth/users'
 
-export const useUsers = (params: Record<string, unknown>) => {
+interface Params {
+  query?: string
+  page?: string | number
+}
+
+export const useUsers = (params: Params) => {
   const key = [`${api_url}`, JSON.stringify(params)]
 
   const { data, error, isLoading, mutate } = useSWR<UserResponse>(

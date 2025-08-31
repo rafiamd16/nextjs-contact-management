@@ -4,9 +4,15 @@ import { getContacts } from '@/lib/api/contact-api'
 import { ContactResponse } from '@/types/contact'
 import useSWR from 'swr'
 
-const api_url = `${process.env.NEXT_PUBLIC_API_URL}/contacts`
+const api_url = '/contacts'
 
-export const useContacts = (params: Record<string, unknown>) => {
+interface Params {
+  query?: string
+  filter?: string
+  page?: string | number
+}
+
+export const useContacts = (params: Params) => {
   const key = [`${api_url}`, JSON.stringify(params)]
 
   const { data, error, isLoading, mutate } = useSWR<ContactResponse>(

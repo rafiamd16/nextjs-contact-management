@@ -1,6 +1,6 @@
 import { api } from '@/lib/axios'
 import { ContactResponse } from '@/types/contact'
-const api_url = `${process.env.NEXT_PUBLIC_API_URL}/contacts`
+const api_url = '/contacts'
 
 export const getContacts = async (
   params: Record<string, unknown> = {}
