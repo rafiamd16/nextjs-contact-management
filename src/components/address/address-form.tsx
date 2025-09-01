@@ -69,10 +69,10 @@ const AddressForm = ({ mode, defaultValues, addressId, contactId, contact }: Pro
         <div className="p-8">
           <div className="mb-6 border-b border-gray-700 pb-6">
             <div className="flex items-center">
-              <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-500 shadow-md">
+              <div className="mr-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-500 shadow-md">
                 <FaUser className="size-5 text-white" />
               </div>
-              <div>
+              <div className="space-y-1 overflow-x-auto">
                 <h2 className="text-xl font-semibold">
                   {contact.first_name} {contact.last_name}
                 </h2>
@@ -198,7 +198,7 @@ const AddressForm = ({ mode, defaultValues, addressId, contactId, contact }: Pro
                 <BackFormButton />
                 <Button
                   type="submit"
-                  className="bg-gradient h-12 w-full cursor-pointer font-medium text-white shadow transition-all hover:-translate-y-0.5 hover:opacity-80 hover:shadow-lg sm:w-auto"
+                  className="bg-gradient h-12 w-full cursor-pointer overflow-hidden font-medium text-white shadow transition-all hover:-translate-y-0.5 hover:opacity-80 hover:shadow-lg sm:w-auto"
                   disabled={isSubmitting}
                 >
                   {mode === 'create' ? <FaPlusCircle size={24} /> : <FaSave size={24} />}

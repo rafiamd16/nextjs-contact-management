@@ -169,7 +169,7 @@ export const BackFormButton = () => {
       variant="outline"
       onClick={() => back()}
       type="button"
-      className="h-12 w-full cursor-pointer font-medium shadow transition-all hover:-translate-y-0.5 hover:opacity-80 hover:shadow-lg sm:w-auto"
+      className="h-12 w-full cursor-pointer overflow-hidden font-medium shadow transition-all hover:-translate-y-0.5 hover:opacity-80 hover:shadow-lg sm:w-auto"
     >
       <FaTimes size={24} />
       Cancel

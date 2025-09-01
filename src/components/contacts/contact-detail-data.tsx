@@ -40,7 +40,7 @@ const ContactDetailData = ({ contact }: Props) => {
         {contactData1.map((item, i) => (
           <div
             key={i}
-            className="overflow-hidden rounded-lg border p-5 shadow-md transition-all duration-200 hover:opacity-70 dark:bg-neutral-800"
+            className="overflow-x-hidden rounded-lg border p-5 shadow-md transition-all duration-200 hover:opacity-70 dark:bg-neutral-800"
           >
             <div className="mb-2 flex items-center">
               <span className="shrink-0">{item.icon}</span>
@@ -54,7 +54,7 @@ const ContactDetailData = ({ contact }: Props) => {
       {contactData2.map((item, i) => (
         <div
           key={i}
-          className="overflow-hidden rounded-lg border p-5 shadow-md transition-all duration-200 hover:opacity-70 dark:bg-neutral-800"
+          className="overflow-x-hidden rounded-lg border p-5 shadow-md transition-all duration-200 hover:opacity-70 dark:bg-neutral-800"
         >
           <div className="mb-2 flex items-center">
             <span className="shrink-0">{item.icon}</span>
