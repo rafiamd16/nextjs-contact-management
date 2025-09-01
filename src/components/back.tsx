@@ -12,7 +12,7 @@ const Back = () => {
       size="sm"
       variant="ghost"
       onClick={() => back()}
-      className="flex w-max cursor-pointer items-center justify-center gap-1 py-1 transition hover:text-blue-400"
+      className="flex w-max cursor-pointer items-center justify-center gap-1 py-1 transition-all duration-300 ease-in-out hover:text-primary"
     >
       <IoArrowBack size={20} /> <span className="text-sm font-semibold">back</span>
     </Button>
