@@ -69,17 +69,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       return true
     },
-    async signIn({ user }) {
-      if (user?.id) {
-        await prisma.user.update({
-          where: { id: user.id },
-          data: {
-            lastLogin: new Date(),
-          } as Prisma.UserUpdateInput,
-        })
-      }
-      return true
-    },
     jwt({ token, user }) {
       if (user) {
         token.role = user.role
