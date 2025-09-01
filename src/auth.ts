@@ -82,4 +82,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return session
     },
   },
+  events: {
+    async signIn({ user }) {
+      await prisma.user.update({
+        where: { id: user.id },
+        data: { lastLogin: new Date() },
+      })
+    },
+  },
 })
