@@ -31,17 +31,17 @@ const AddressList = ({ contactId, addresses }: Props) => {
           {
             icon: <FaRoad className="w-6 text-neutral-500" />,
             label: 'Street',
-            value: address.street,
+            value: address.street === '' ? '-' : address.street,
           },
           {
             icon: <FaCity className="w-6 text-neutral-500" />,
             label: 'City',
-            value: address.city,
+            value: address.city === '' ? '-' : address.city,
           },
           {
             icon: <FaMap className="w-6 text-neutral-500" />,
             label: 'Province',
-            value: address.province,
+            value: address.province === '' ? '-' : address.province,
           },
           {
             icon: <FaFlag className="w-6 text-neutral-500" />,
@@ -62,16 +62,16 @@ const AddressList = ({ contactId, addresses }: Props) => {
           >
             <div className="mb-3 flex items-center">
               <div className="mr-3 flex items-center justify-center rounded-full bg-blue-500 p-2 shadow-md">
-                <FaHome className="size-5 text-white" />
+                <FaHome className="size-5 shrink-0 text-white" />
               </div>
               <h4 className="text-lg font-semibold">Home Address</h4>
             </div>
             <div className="mb-4 ml-1 space-y-3">
               {addressData.map((item, i) => (
                 <p key={i} className="flex items-center">
-                  {item.icon}
+                  <span className="shrink-0">{item.icon}</span>
                   <span className="w-30 font-medium">{item.label}:</span>
-                  <span>{item.value}</span>
+                  <span className="overflow-auto">{item.value}</span>
                 </p>
               ))}
             </div>

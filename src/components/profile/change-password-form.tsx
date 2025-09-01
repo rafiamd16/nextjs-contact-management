@@ -85,7 +85,7 @@ const ChangePasswordForm = () => {
           <div className="mr-3 flex items-center justify-center rounded-full bg-purple-500 p-2.5 shadow-md">
             <FaKey size={24} className="text-white" />
           </div>
-          <h2 className="text-xl font-semibold">Change Password</h2>
+          <h2 className="truncate text-xl font-semibold">Change Password</h2>
         </div>
         <Form {...form}>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -196,7 +196,7 @@ const ChangePasswordForm = () => {
             <div className="flex flex-col gap-3">
               <Button
                 type="submit"
-                className="h-12 w-full cursor-pointer bg-primary text-base text-white hover:bg-primary/90"
+                className="h-12 w-full cursor-pointer overflow-hidden bg-primary text-base text-white hover:bg-primary/90"
               >
                 <FaKey />
                 {isSubmitting ? 'Updating...' : 'Update Password'}
@@ -205,7 +205,7 @@ const ChangePasswordForm = () => {
                 onClick={() => reset()}
                 size="sm"
                 variant="outline"
-                className="w-max self-end"
+                className="w-max self-end overflow-hidden"
               >
                 <RefreshCcw />
                 Refresh

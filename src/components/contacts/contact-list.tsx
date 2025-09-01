@@ -41,12 +41,12 @@ const ContactList = ({ data, isLoading, mutate, role }: Props) => {
           {
             icon: <FaUserTag className="w-6 text-neutral-500" />,
             label: 'Last Name',
-            value: contact.last_name,
+            value: contact.last_name === '' ? '-' : contact.last_name,
           },
           {
             icon: <FaEnvelope className="w-6 text-neutral-500" />,
             label: 'Email',
-            value: contact.email,
+            value: contact.email === '' ? '-' : contact.email,
           },
           {
             icon: <FaPhone className="w-6 text-neutral-500" />,
@@ -58,27 +58,33 @@ const ContactList = ({ data, isLoading, mutate, role }: Props) => {
         return (
           <div
             key={contact.id}
-            className="card-hover overflow-hidden rounded-xl border bg-card shadow-md dark:bg-neutral-900"
+            className="card-hover relative overflow-hidden rounded-xl border bg-card shadow-md dark:bg-neutral-900"
           >
+            <Link
+              href={`/dashboard/contacts/${contact.id}`}
+              className="absolute top-4 right-6 animate-pulse rounded bg-primary px-2 py-0.5 text-xs text-white"
+            >
+              Detail
+            </Link>
             <div className="p-6">
               <Link
                 href={`/dashboard/contacts/${contact.id}`}
                 className="block cursor-pointer rounded-lg p-3 transition-all duration-200 hover:bg-neutral-200 dark:hover:bg-neutral-800"
               >
                 <div className="mb-3 flex items-center">
-                  <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-blue-500 shadow-md">
+                  <div className="mr-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-500 shadow-md">
                     <FaUser className="text-white" />
                   </div>
-                  <h2 className="text-xl font-semibold transition-colors duration-200 hover:text-blue-400">
+                  <h2 className="truncate text-xl font-semibold transition-colors duration-200 hover:text-blue-400">
                     {contact.first_name} {contact.last_name}
                   </h2>
                 </div>
                 <div className="ml-2 space-y-3 dark:text-neutral-300">
                   {contactData.map((item, i) => (
                     <p key={i} className="flex items-center">
-                      {item.icon}
-                      <span className="w-24 font-medium">{item.label}:</span>
-                      <span>{item.value}</span>
+                      <span className="shrink-0">{item.icon}</span>
+                      <span className="w-24 truncate font-medium">{item.label}:</span>
+                      <span className="truncate">{item.value}</span>
                     </p>
                   ))}
                 </div>

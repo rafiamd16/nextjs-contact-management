@@ -11,10 +11,10 @@ import { motion } from 'framer-motion'
 interface Props {
   data: AdminDashboard
   user: IUser
-  recentContacts: UserDashboard
+  recentContactsUser: UserDashboard
 }
 
-const Data = ({ user, data, recentContacts }: Props) => {
+const Data = ({ user, data, recentContactsUser }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: -30 }}
@@ -41,7 +41,7 @@ const Data = ({ user, data, recentContacts }: Props) => {
             btnText="Manage Contacts"
             description="Your most recently added contacts"
           />
-          <UserTableDashboard recentContacts={recentContacts} />
+          <UserTableDashboard recentContactsUser={recentContactsUser} />
         </DataContainer>
       )}
     </motion.div>

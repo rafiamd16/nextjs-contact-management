@@ -99,12 +99,12 @@ export const getAdminDashboardStats = async () => {
   const now = new Date()
 
   // Minggu ini
-  const startThisWeek = startOfWeek(now, { weekStartsOn: 1 })
-  const endThisWeek = endOfWeek(now, { weekStartsOn: 1 })
+  const startThisWeek = startOfWeek(now)
+  const endThisWeek = endOfWeek(now)
 
   // Minggu lalu
-  const startLastWeek = startOfWeek(subWeeks(now, 1), { weekStartsOn: 1 })
-  const endLastWeek = endOfWeek(subWeeks(now, 1), { weekStartsOn: 1 })
+  const startLastWeek = startOfWeek(subWeeks(now, 1))
+  const endLastWeek = endOfWeek(subWeeks(now, 1))
 
   // 30 hari lalu
   const thirtyDaysAgo = subDays(now, 30)
@@ -122,6 +122,7 @@ export const getAdminDashboardStats = async () => {
     allUsers,
     recentUsers,
   ] = await Promise.all([
+    // users
     prisma.user.count(),
     prisma.user.count({
       where: { createdAt: { gte: startThisWeek, lte: endThisWeek } },
@@ -130,6 +131,7 @@ export const getAdminDashboardStats = async () => {
       where: { createdAt: { gte: startLastWeek, lte: endLastWeek } },
     }),
 
+    // contacts
     prisma.contact.count(),
     prisma.contact.count({
       where: { createdAt: { gte: startThisWeek, lte: endThisWeek } },

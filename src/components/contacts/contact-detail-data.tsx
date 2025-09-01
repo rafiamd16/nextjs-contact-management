@@ -17,7 +17,7 @@ const ContactDetailData = ({ contact }: Props) => {
     {
       icon: <FaUserTag className="mr-2 text-primary" />,
       label: 'Last Name',
-      value: contact.last_name,
+      value: contact.last_name === '' ? '-' : contact.last_name,
     },
   ]
 
@@ -25,7 +25,7 @@ const ContactDetailData = ({ contact }: Props) => {
     {
       icon: <FaEnvelope className="mr-2 text-primary" />,
       label: 'Email',
-      value: contact.email,
+      value: contact.email === '' ? '-' : contact.email,
     },
     {
       icon: <FaPhone className="mr-2 text-primary" />,
@@ -40,13 +40,13 @@ const ContactDetailData = ({ contact }: Props) => {
         {contactData1.map((item, i) => (
           <div
             key={i}
-            className="rounded-lg border p-5 shadow-md transition-all duration-200 hover:opacity-70 dark:bg-neutral-800"
+            className="overflow-hidden rounded-lg border p-5 shadow-md transition-all duration-200 hover:opacity-70 dark:bg-neutral-800"
           >
             <div className="mb-2 flex items-center">
-              {item.icon}
-              <h3 className="text-sm font-medium">{item.label}</h3>
+              <span className="shrink-0">{item.icon}</span>
+              <h3 className="overflow-auto text-sm font-medium">{item.label}</h3>
             </div>
-            <p className="ml-6 text-lg">{item.value}</p>
+            <p className="ml-6 overflow-auto text-lg">{item.value}</p>
           </div>
         ))}
       </div>
@@ -54,13 +54,13 @@ const ContactDetailData = ({ contact }: Props) => {
       {contactData2.map((item, i) => (
         <div
           key={i}
-          className="rounded-lg border p-5 shadow-md transition-all duration-200 hover:opacity-70 dark:bg-neutral-800"
+          className="overflow-hidden rounded-lg border p-5 shadow-md transition-all duration-200 hover:opacity-70 dark:bg-neutral-800"
         >
           <div className="mb-2 flex items-center">
-            {item.icon}
-            <h3 className="text-sm font-medium">{item.label}</h3>
+            <span className="shrink-0">{item.icon}</span>
+            <h3 className="overflow-auto text-sm font-medium">{item.label}</h3>
           </div>
-          <p className="ml-6 text-lg">{item.value}</p>
+          <p className="ml-6 overflow-auto text-lg">{item.value}</p>
         </div>
       ))}
     </div>

@@ -13,7 +13,7 @@ interface Props {
   adminStats: AdminDashboard
   data: AdminDashboard
   recentUsers: AdminDashboard
-  recentContacts: UserDashboard
+  recentContactsUser: UserDashboard
 }
 
 const DashboardWrapper = ({
@@ -21,14 +21,14 @@ const DashboardWrapper = ({
   userStats,
   adminStats,
   data,
-  recentContacts,
+  recentContactsUser,
   recentUsers,
 }: Props) => {
   return (
     <div className="space-y-8">
       <Profile user={user as IUser} />
       <StatsCard user={user} userStats={userStats} adminStats={adminStats} />
-      <Data recentContacts={recentContacts} data={data} user={user} />
+      <Data recentContactsUser={recentContactsUser} data={data} user={user} />
       {user?.role === 'admin' && <AdminRecentUsers recentUsers={recentUsers} />}
     </div>
   )

@@ -60,7 +60,7 @@ const ProfileForm = ({ user }: { user: IUser }) => {
           <div className="mr-3 flex items-center justify-center rounded-full bg-primary p-2.5 shadow-md">
             <FaUserEdit size={24} className="text-white" />
           </div>
-          <h2 className="text-xl font-semibold">Edit Profile</h2>
+          <h2 className="truncate text-xl font-semibold">Edit Profile</h2>
         </div>
         <Form {...form}>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -113,7 +113,7 @@ const ProfileForm = ({ user }: { user: IUser }) => {
 
             <Button
               type="submit"
-              className="h-12 w-full cursor-pointer bg-primary text-base text-white hover:bg-primary/90"
+              className="h-12 w-full cursor-pointer overflow-hidden bg-primary text-base text-white hover:bg-primary/90"
             >
               <FaSave />
               {isSubmitting ? 'Updating...' : 'Update Profile'}

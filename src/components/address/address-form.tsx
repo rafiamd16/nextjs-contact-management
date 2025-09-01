@@ -48,10 +48,10 @@ const AddressForm = ({ mode, defaultValues, addressId, contactId, contact }: Pro
   const onSubmit = async (data: AddressFormSchema) => {
     if (mode === 'create') {
       await createAddress(contactId as string, data)
+      reset()
     } else if (mode === 'edit' && addressId) {
       await updateAddress(contactId as string, addressId, data)
     }
-    reset()
     mode === 'create' ? back() : null
     toast.success(
       `${mode === 'create' ? 'Address created successfully' : 'Address updated successfully'}`,

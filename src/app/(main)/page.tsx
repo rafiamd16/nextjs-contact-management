@@ -20,7 +20,7 @@ const HomePage = () => {
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mx-auto mb-10 max-w-2xl text-xl text-neutral-600"
+          className="mx-auto mb-10 max-w-2xl text-xl text-neutral-500"
         >
           Save, sync, and access your contacts from anywhere. Integrated with your favorite
           platforms.

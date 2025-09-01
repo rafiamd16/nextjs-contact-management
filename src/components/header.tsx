@@ -17,8 +17,8 @@ const Header = ({ icon, back, title, mode = 'default' }: Props) => {
       transition={{ duration: 0.5 }}
       className="mb-6 flex items-center gap-3"
     >
-      {icon}
-      <h1 className="text-2xl font-bold">{title}</h1>
+      <span className="shrink-0">{icon}</span>
+      <h1 className="text-2xl font-bold capitalize">{title}</h1>
     </motion.div>
   ) : (
     <motion.div
@@ -29,7 +29,7 @@ const Header = ({ icon, back, title, mode = 'default' }: Props) => {
     >
       {back}
       <div className="flex items-center gap-3">
-        {icon}
+        <span className="shrink-0">{icon}</span>
         <h1 className="text-lg font-bold capitalize sm:text-2xl">{title}</h1>
       </div>
     </motion.div>

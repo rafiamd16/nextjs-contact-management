@@ -14,6 +14,9 @@ interface Props {
 }
 
 const StatsCard = ({ userStats, adminStats, user }: Props) => {
+  const { contacts: userContacts, addresses } = userStats
+  const { users, contacts: adminContacts } = adminStats
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -30 }}
@@ -26,23 +29,23 @@ const StatsCard = ({ userStats, adminStats, user }: Props) => {
           <Card
             icon={<FaUsers className="text-xl text-purple-600" />}
             label="Total Users"
-            value={adminStats.users.total}
-            description={`+${adminStats.users.growth} from last week`}
+            value={users.total}
+            description={`${users.growth > 0 ? `+${users.growth}` : users.growth} from last week`}
             className="bg-purple-100"
             borderColor="border-purple-500"
           />
           <Card
             icon={<FaAddressBook className="text-xl text-green-600" />}
             label="Total Contacts"
-            value={adminStats.contacts.total}
-            description={`+${adminStats.contacts.growth} from last week`}
+            value={adminContacts.total}
+            description={`${adminContacts.growth > 0 ? `+${adminContacts.growth}` : adminContacts.growth} from last week`}
             className="bg-green-100"
             borderColor="border-green-500"
           />
           <Card
             icon={<FaUserCheck className="text-xl text-blue-600" />}
             label="Active Users"
-            value={adminStats.users.activeLast30Days}
+            value={users.activeLast30Days}
             description="Last 30 days"
             className="bg-blue-100"
             borderColor="border-blue-500"
@@ -50,7 +53,7 @@ const StatsCard = ({ userStats, adminStats, user }: Props) => {
           <Card
             icon={<FaUserPlus className="text-xl text-yellow-600" />}
             label="New Users"
-            value={adminStats.users.newThisWeek}
+            value={users.newThisWeek}
             description="This Week"
             className="bg-yellow-100"
             borderColor="border-yellow-500"
@@ -61,15 +64,15 @@ const StatsCard = ({ userStats, adminStats, user }: Props) => {
           <Card
             icon={<FaUsers className="text-xl text-blue-600" />}
             label="Total Contacts"
-            value={userStats.contacts.total}
-            description={`+${userStats.contacts.growth} from last month`}
+            value={userContacts.total}
+            description={`${userContacts.growth > 0 ? `+${userContacts.growth}` : userContacts.growth} from last month`}
             className="bg-blue-100"
             borderColor="border-blue-500"
           />
           <Card
             icon={<FaUserPlus className="text-xl text-green-600" />}
             label="Recent Contacts"
-            value={userStats.contacts.recentThisWeek}
+            value={userContacts.recentThisWeek}
             description="Added this week"
             className="bg-green-100"
             borderColor="border-green-500"
@@ -77,7 +80,7 @@ const StatsCard = ({ userStats, adminStats, user }: Props) => {
           <Card
             icon={<FaMapMarkerAlt className="text-xl text-purple-600" />}
             label="Addresses"
-            value={userStats.addresses.total}
+            value={addresses.total}
             description="Total Saved"
             className="bg-purple-100"
             borderColor="border-purple-500"
@@ -85,7 +88,7 @@ const StatsCard = ({ userStats, adminStats, user }: Props) => {
           <Card
             icon={<FaUserPlus className="text-xl text-yellow-600" />}
             label="New Addresses"
-            value={userStats.addresses.newThisWeek}
+            value={addresses.newThisWeek}
             description="This Week"
             className="bg-yellow-100"
             borderColor="border-yellow-500"

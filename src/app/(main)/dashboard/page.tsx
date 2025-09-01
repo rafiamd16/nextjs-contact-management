@@ -19,7 +19,7 @@ const DashboardPage = async () => {
     const userStats = (await getDashboardStats()) as UserDashboard
     const AdminStats = (await getDashboardStats()) as unknown as AdminDashboard
     const data = (await getDashboardStats()) as unknown as AdminDashboard
-    const recentContacts = (await getDashboardStats()) as UserDashboard
+    const recentContactsUser = (await getDashboardStats()) as UserDashboard
     const recentUsers = (await getDashboardStats()) as unknown as AdminDashboard
 
     return (
@@ -31,7 +31,7 @@ const DashboardPage = async () => {
         />
         <DashboardWrapper
           recentUsers={recentUsers}
-          recentContacts={recentContacts}
+          recentContactsUser={recentContactsUser}
           data={data}
           userStats={userStats}
           adminStats={AdminStats}
