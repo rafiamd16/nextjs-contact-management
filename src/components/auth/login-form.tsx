@@ -49,7 +49,6 @@ const LoginForm = () => {
       }
     } catch (error) {
       console.log(error)
-      return toast.error('Something went wrong', { richColors: true, position: 'top-center' })
     }
   }
 
