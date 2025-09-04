@@ -13,6 +13,7 @@ import { Input } from '@/components/ui/input'
 import { signUpCredentials } from '@/lib/actions/user-action'
 import { RegisterFormSchema, registerFormSchema } from '@/lib/validations/user-validation'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Loader2Icon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -195,8 +196,17 @@ const RegisterForm = () => {
           className="h-11 w-full cursor-pointer font-bold text-white duration-300 hover:-translate-y-0.5"
           disabled={isSubmitting}
         >
-          <FaUserPlus className="size-4" />
-          {isSubmitting ? 'Loading...' : 'Register'}
+          {isSubmitting ? (
+            <>
+              <Loader2Icon className="animate-spin" />
+              <span>Please wait</span>
+            </>
+          ) : (
+            <>
+              <FaUserPlus className="size-4" />
+              <span>Sign Up</span>
+            </>
+          )}
         </Button>
       </form>
     </Form>

@@ -58,7 +58,7 @@ export const signInCredentials = async (data: LoginFormSchema) => {
   }
 
   try {
-    await signIn('credentials', { ...parsed.data, redirect: false })
+    await signIn('credentials', { ...parsed.data, redirectTo: '/dashboard' })
     revalidatePath('/dashboard')
   } catch (error) {
     if (error instanceof AuthError) {

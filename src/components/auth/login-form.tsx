@@ -13,7 +13,7 @@ import { Input } from '@/components/ui/input'
 import { signInCredentials } from '@/lib/actions/user-action'
 import { LoginFormSchema, loginFormSchema } from '@/lib/validations/user-validation'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useRouter } from 'next/navigation'
+import { Loader2Icon } from 'lucide-react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FaSignInAlt } from 'react-icons/fa'
@@ -22,7 +22,6 @@ import { toast } from 'sonner'
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false)
-  const { push } = useRouter()
 
   const form = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormSchema),
@@ -48,12 +47,6 @@ const LoginForm = () => {
           duration: 3000,
         })
       }
-      push('/dashboard')
-      toast.success('Signed in successfully', {
-        richColors: true,
-        position: 'top-center',
-        duration: 3000,
-      })
     } catch (error) {
       console.log(error)
       return toast.error('Something went wrong', { richColors: true, position: 'top-center' })
@@ -126,8 +119,17 @@ const LoginForm = () => {
           className="h-11 w-full cursor-pointer font-bold text-white transition-all duration-300 hover:-translate-y-0.5"
           disabled={isSubmitting}
         >
-          <FaSignInAlt className="size-4" />
-          {isSubmitting ? 'Signing in...' : 'Sign In'}
+          {isSubmitting ? (
+            <>
+              <Loader2Icon className="animate-spin" />
+              <span>Please wait</span>
+            </>
+          ) : (
+            <>
+              <FaSignInAlt className="size-4" />
+              <span>Sign In</span>
+            </>
+          )}
         </Button>
       </form>
     </Form>

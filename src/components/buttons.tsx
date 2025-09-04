@@ -70,7 +70,7 @@ export const DeleteButton = <T,>({
         duration: 3000,
       })
       mutate?.()
-    } catch (_) {
+    } catch {
       toast.error('Something went wrong', { richColors: true, position: 'top-center' })
     }
   }
