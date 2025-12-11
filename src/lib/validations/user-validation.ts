@@ -9,7 +9,7 @@ export const registerFormSchema = z
       .max(50, 'Name must be less than 50 characters')
       .regex(
         /^(?!.*(\p{L})\1{2,})[\p{L}'’\-]+(?:\s[\p{L}'’\-]+)*$/u,
-        'Names can only contain letters, spaces, hyphens, or apostrophes, and no letter can be repeated more than twice in a row.',
+        'Names can only contain letters, spaces, hyphens, or apostrophes, and no letter can be repeated more than twice in a row.'
       ),
     email: z.email('Invalid email').trim(),
     password: z
@@ -18,7 +18,7 @@ export const registerFormSchema = z
       .max(32, 'Password must be less than 32 characters')
       .regex(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{8,64}$/,
-        'Passwords must contain uppercase letters, lowercase letters, numbers, and symbols.',
+        'Passwords must contain uppercase letters, lowercase letters, numbers, and symbols.'
       ),
     confirmPassword: z
       .string()
@@ -40,7 +40,7 @@ export const userUpdateSchema = z.object({
     .max(50, 'Name must be less than 50 characters')
     .regex(
       /^(?!.*(\p{L})\1{2,})[\p{L}'’\-]+(?:\s[\p{L}'’\-]+)*$/u,
-      'Names can only contain letters, spaces, hyphens, or apostrophes, and no letter can be repeated more than twice in a row.',
+      'Names can only contain letters, spaces, hyphens, or apostrophes, and no letter can be repeated more than twice in a row.'
     ),
 })
 export type UserUpdateSchema = z.infer<typeof userUpdateSchema>
@@ -64,7 +64,7 @@ export const changePasswordSchema = z
       .max(32, 'Password must be less than 32 characters')
       .regex(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{8,64}$/,
-        'Passwords must contain uppercase letters, lowercase letters, numbers, and symbols.',
+        'Passwords must contain uppercase letters, lowercase letters, numbers, and symbols.'
       ),
     confirmPassword: z
       .string()
